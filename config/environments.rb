@@ -2,17 +2,9 @@
 # => postgres://{user}:{password}@{host}:{port}/path
 
 configure :development do
-  set :database, 'sqlite://db/development.db'
+  set :database, 'sqlite:///db/development.db'
 end
 
 configure :production do
-  db = URI.parse(ENV['DATABASE_URL'])
-
-  ActiveRecord::Base.establish_connection(
-    :encoding => 'utf8',
-    :adapter  => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-    :database => db.path[1..-1],
-    :username => db.user,
-    :password => db.password
-  )
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 end

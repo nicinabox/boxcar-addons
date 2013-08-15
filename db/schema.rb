@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20130814182402) do
 
   create_table "versions", force: true do |t|
     t.string "version"
+    t.string "name"
     t.string "description"
     t.string "author"
     t.string "homepage"

@@ -12,10 +12,12 @@ namespace '/addons' do
 
   # Create
   post '/?' do
-    @addon = Addon.new(params[:addon])
+    @addon  = Addon.new(params[:addon])
+    version = params[:version]
 
     if @addon.save
-      @addon.to_json
+      @addon.versions.create!(version)
+      { :success => "Successfully registered #{@addon.name}" }.to_json
     else
       { :errors => @addon.errors.full_messages }.to_json
     end

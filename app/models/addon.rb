@@ -3,4 +3,8 @@ class Addon < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :versions
+
+  def latest_version
+    versions.last || []
+  end
 end

@@ -1,6 +1,9 @@
-# = bundle that shit
-require 'rubygems'
 require 'bundler/setup'
+require 'sinatra'
+require 'active_record'
+require 'sinatra/activerecord'
+require 'sinatra/activerecord/rake'
+require './config/environments'
 require './app/core_extensions/try'
 
 Bundler.require(:assets, :sprockets)

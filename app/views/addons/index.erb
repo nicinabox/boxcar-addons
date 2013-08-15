@@ -1,0 +1,12 @@
+<div class="page-header">
+  <h1><%= @title %></h1>
+</div>
+
+<% @addons.each do |addon| %>
+  <div class="addon">
+    <h2><%= addon.name %></h2>
+
+    <h4>Install</h4>
+    <pre class="bash">boxcar addons:add <%= addon.name %></pre>
+  </div>
+<% end %>

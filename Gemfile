@@ -12,17 +12,21 @@ end
 # sinatra
 group :sinatra do
   gem 'sinatra'
+  gem 'sinatra-partial'
+  gem 'sinatra-activerecord'
   gem 'sinatra-flash', :require => %w(sinatra/flash)
   gem 'sinatra-tag-helpers', :require => %w(sinatra/tag-helpers)
   gem 'sinatra-routing-helpers', :require => %w(sinatra/routing-helpers)
   gem 'sinatra-contrib', :require => %w(
     sinatra/namespace
     sinatra/content_for
+    sinatra/respond_with
   )
 end
 
 group :assorted do
-  gem 'unicorn' # server
+  gem 'activerecord'
+  gem 'unicorn'
   gem 'rack-compatible' # opt into the future
   gem 'pony' # email
   gem 'erubis' # faster better stronger
@@ -38,7 +42,7 @@ end
 
 # assets
 group :assets do
-  gem 'susy'
+  gem 'compass'
   gem 'coffee-script'
 end
 
@@ -48,4 +52,12 @@ group :sprockets do
   gem 'sprockets'
   gem 'sprockets-sass'
   gem 'sprockets-helpers'
+end
+
+group :development do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
 end

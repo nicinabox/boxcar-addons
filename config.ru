@@ -1,23 +1,21 @@
-#
-# This file kicks everything off. It:
-#  * Loads required gems.
-#  * Loads required ruby libraries.
-#  * Loads the application code.
-#  * Configures session middleware.
-#  * Mounts and runs the Sprockets environment at '/assets'.
-#  * Mounts and runs the main application at '/'.
-#
+require 'pathname'
+$:.unshift File.dirname(__FILE__)
 
-# = get bundler loaded
 require 'rubygems'
 require 'bundler/setup'
+require 'active_record'
+require 'sinatra/activerecord'
 
-# load what we need
 Bundler.require(:memcached, :sinatra, :assorted, :assets, :sprockets)
+
+require 'config/environments'
 
 # App root configure for everyone else
 configure do
   set :app_root, File.expand_path('../', __FILE__)
+  set :partial_template_engine, :erb
+  set :default_builder, 'StandardFormBuilder'
+  enable :partial_underscores
 end
 
 # core Ruby requires and app files

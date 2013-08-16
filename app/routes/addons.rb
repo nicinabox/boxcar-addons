@@ -2,12 +2,14 @@ require 'json'
 
 namespace '/addons' do
   before { @title = 'All Addons' }
-  respond_to :html, :json
 
   # Index
   get '/?' do
     @addons = Addon.all
-    erb 'addons/index'
+    respond_with :'addons/index' do |wants|
+      wants.json { @addons.to_json }
+      wants.html { erb 'addons/index'}
+    end
   end
 
   # Create
@@ -20,6 +22,14 @@ namespace '/addons' do
       { :success => "Successfully registered #{@addon.name}" }.to_json
     else
       { :errors => @addon.errors.full_messages }.to_json
+    end
+  end
+
+  get '/:name/?' do
+    @addon = Addon.find_by_name(params[:name])
+    respond_with :'addons/show' do |wants|
+      wants.json { @addon.to_json }
+      wants.html { erb 'addons/show'}
     end
   end
 

@@ -6,10 +6,12 @@ namespace '/addons' do
   # Index
   get '/?' do
     @addons = Addon.all
-    respond_with :'addons/index' do |wants|
-      wants.json { @addons.to_json }
-      wants.html { erb 'addons/index'}
-    end
+    erb 'addons/index'
+  end
+
+  get '.json' do
+    addons = Addon.all
+    addons.to_json
   end
 
   # Create

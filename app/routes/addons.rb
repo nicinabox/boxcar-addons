@@ -11,7 +11,7 @@ namespace '/addons' do
 
   get '.json' do
     addons = Addon.all
-    addons.to_json
+    addons.to_json(:include => :versions)
   end
 
   # Create

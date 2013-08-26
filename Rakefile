@@ -7,6 +7,7 @@ require './config/environments'
 require './app/core_extensions/try'
 
 Bundler.require(:assets, :sprockets)
+Dir['./lib/tasks/**/*.rake'].each { |f| load f }
 
 # The default, if you just run `rake` in this directory, will list all the available tasks
 task :default do

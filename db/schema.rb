@@ -10,11 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814182402) do
+ActiveRecord::Schema.define(version: 20130826040632) do
 
   create_table "addons", force: true do |t|
     t.string "name"
     t.string "endpoint"
+  end
+
+  create_table "packages", force: true do |t|
+    t.string "name"
+    t.string "version"
+    t.string "arch"
+    t.string "build"
+    t.string "package_name"
+    t.string "location"
+    t.string "size_uncompressed"
+    t.string "size_compressed"
+    t.string "slackware_version"
   end
 
   create_table "versions", force: true do |t|

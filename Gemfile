@@ -25,6 +25,7 @@ group :sinatra do
 end
 
 group :assorted do
+  gem 'httparty'
   gem 'activerecord'
   gem 'unicorn'
   gem 'rack-compatible' # opt into the future

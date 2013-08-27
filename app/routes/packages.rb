@@ -1,6 +1,10 @@
 require 'json'
 
 namespace '/packages' do
+  before do
+    content_type :json
+  end
+
   get '/:name' do
     @package = Package.find_all_by_name(params[:name])
     @package.to_json(:methods => :path)

@@ -25,7 +25,7 @@ working_directory wd
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 if development
-  listen 4567, :tcp_nopush => true
+  listen 4568, :tcp_nopush => true
 else
   listen socket_path, :backlog => 64
   check_client_connection true

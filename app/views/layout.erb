@@ -14,10 +14,33 @@
 </head>
 <body>
 
-  <div id="root" class="container">
+  <div id="root">
     <div id="header">
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Boxcar Addons</a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/addons">Addons</a>
+            </li>
+            <li>
+              <a href="/addons/new">Register Addon</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <div id="main">
+
+    <div id="main" class="container">
       <%= yield %>
     </div>
     <div id="footer"></div>

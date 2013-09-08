@@ -1,10 +1,11 @@
 helpers do
-  def form_group(f, method, input_type = :text_field)
+  def form_group(f, method, help_block = '', input_type = :text_field)
     partial :'shared/form_group',
             :locals => {
-              :f => f,
-              :method => method,
-              :input_type => input_type.to_s
+              :f          => f,
+              :method     => method,
+              :input_type => input_type.to_s,
+              :help_block  => help_block
             }
   end
 

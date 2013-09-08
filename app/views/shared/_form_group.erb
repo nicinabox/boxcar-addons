@@ -1,7 +1,5 @@
 <div class="form-group">
-  <%= f.label method, :class => 'control-label col-lg-2' %>
-
-  <div class="col-lg-5">
-    <%= f.send input_type, method, :class => 'form-control' %>
-  </div>
+  <%= f.label method, :class => 'control-label' %>
+  <%= f.send input_type, method, :class => 'form-control' %>
+  <span class="help-block"><%= help_block %></span>
 </div>

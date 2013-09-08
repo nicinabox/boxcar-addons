@@ -1,31 +1,27 @@
-<div class="page-header">
-  <h1><%= @title %></h1>
-</div>
-
 <% @addons.each do |addon| %>
   <div class="addon">
     <h2>
       <%= addon.name %>
-      <small><%= addon.latest_version.version %></small>
+      <small><%#= addon.latest_version.version %></small>
     </h2>
 
     <p class="lead">
-      <%= addon.latest_version.description %>
+      <%#= addon.latest_version.description %>
     </p>
 
     <h3>Install</h3>
     <pre class="bash">boxcar addons:add <%= addon.name %></pre>
 
     <h4>Authors</h4>
-    <%= addon.latest_version.author %>
+    <%#= addon.latest_version.author %>
 
     <h4>Versions</h4>
     <ul>
-      <% addon.versions.each do |addon| %>
+      <% #addon.versions.each do |addon| %>
         <li>
-          <%= addon.version %>
+          <%#= addon.version %>
         </li>
-      <% end %>
+      <% #end %>
     </ul>
 
     <hr>

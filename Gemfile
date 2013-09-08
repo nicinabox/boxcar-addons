@@ -25,6 +25,7 @@ group :sinatra do
 end
 
 group :assorted do
+  gem 'grit'
   gem 'httparty'
   gem 'activerecord'
   gem 'unicorn'

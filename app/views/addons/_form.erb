@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="col-sm-5 col-sm-offset-3">
+    <% form_for @addon, '/addons' do |f| %>
+      <%= form_group(f, :name, 'No spaces, hypens recommended') %>
+      <%= form_group(f, :endpoint, 'Your git repo starting with git://') %>
+
+      <%= submit_tag 'Register' %>
+    <% end %>
+  </div>
+</div>

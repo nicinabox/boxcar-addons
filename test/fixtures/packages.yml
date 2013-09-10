@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  version: MyString
+  arch: MyString
+  build: MyString
+  package_name: MyString
+  location: MyString
+  size_uncompressed: MyString
+  size_compressed: MyString
+  slackware_version: MyString
+
+two:
+  name: MyString
+  version: MyString
+  arch: MyString
+  build: MyString
+  package_name: MyString
+  location: MyString
+  size_uncompressed: MyString
+  size_compressed: MyString
+  slackware_version: MyString

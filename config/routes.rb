@@ -1,5 +1,6 @@
 BoxcarAddons::Application.routes.draw do
   resources :addons
+  resources :packages, :only => [:index, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -34,6 +34,7 @@ end
 
 gem 'grit'
 gem 'httparty'
+gem 'friendly_id', '5.0.0.beta4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

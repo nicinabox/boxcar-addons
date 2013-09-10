@@ -38,6 +38,8 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     execjs (2.0.1)
+    friendly_id (5.0.0.beta4)
+      activerecord (~> 4.0.0)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -119,6 +121,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  friendly_id (= 5.0.0.beta4)
   grit
   httparty
   jbuilder (~> 1.2)

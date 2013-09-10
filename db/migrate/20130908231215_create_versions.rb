@@ -2,7 +2,6 @@ class CreateVersions < ActiveRecord::Migration
   def change
     create_table :versions do |t|
       t.string :author
-      t.string :text
       t.string :number
       t.text :description
       t.integer :addon_id

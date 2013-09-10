@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20130908231215) do
 
   create_table "versions", force: true do |t|
     t.string   "author"
-    t.string   "text"
     t.string   "number"
     t.text     "description"
     t.integer  "addon_id"

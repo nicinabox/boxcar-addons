@@ -1,5 +1,5 @@
 BoxcarAddons::Application.routes.draw do
-  resources :addons
+  resources :addons, :only => [:index, :show, :new, :create]
   resources :packages, :only => [:index, :show] do
     get ':version', action: :version,
                     as: :version,

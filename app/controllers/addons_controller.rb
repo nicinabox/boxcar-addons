@@ -17,10 +17,6 @@ class AddonsController < ApplicationController
     @addon = Addon.new
   end
 
-  # GET /addons/1/edit
-  def edit
-  end
-
   # POST /addons
   # POST /addons.json
   def create
@@ -47,34 +43,10 @@ class AddonsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /addons/1
-  # PATCH/PUT /addons/1.json
-  def update
-    respond_to do |format|
-      if @addon.update(addon_params)
-        format.html { redirect_to @addon, notice: 'Addon was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @addon.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /addons/1
-  # DELETE /addons/1.json
-  def destroy
-    @addon.destroy
-    respond_to do |format|
-      format.html { redirect_to addons_url }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_addon
-      @addon = Addon.find(params[:id])
+      @addon = Addon.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

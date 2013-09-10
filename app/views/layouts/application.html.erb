@@ -8,7 +8,37 @@
 </head>
 <body>
 
-<%= yield %>
+<div id="header">
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Boxcar Addons</a>
+    </div>
+
+    <div id="primary-nav" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Register Addon', new_addon_path %>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="container">
+  <div id="main">
+    <div class="row">
+      <div class="col-md-4">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

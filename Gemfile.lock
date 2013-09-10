@@ -27,6 +27,7 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.0)
     atomic (1.1.13)
+    bcrypt-ruby (3.1.2)
     builder (3.1.4)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -35,6 +36,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    devise (3.1.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     diff-lcs (1.2.4)
     erubis (2.7.0)
     excon (0.25.3)
@@ -69,6 +76,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.8.0)
     multi_xml (0.5.5)
+    orm_adapter (0.4.0)
     pg (0.16.0)
     polyglot (0.3.3)
     posix-spawn (0.3.6)
@@ -126,12 +134,15 @@ GEM
     uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.3)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  devise
   friendly_id (= 5.0.0.beta4)
   grit
   heroku_san

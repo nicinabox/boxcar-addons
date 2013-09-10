@@ -1,4 +1,5 @@
 BoxcarAddons::Application.routes.draw do
+  devise_for :users
   resources :addons, :only => [:index, :show, :new, :create]
   resources :packages, :only => [:index, :show] do
     get ':version', action: :version,

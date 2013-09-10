@@ -35,6 +35,7 @@ end
 gem 'grit'
 gem 'httparty'
 gem 'friendly_id', '5.0.0.beta4'
+gem 'devise'
 
 group :development do
   gem 'heroku_san'

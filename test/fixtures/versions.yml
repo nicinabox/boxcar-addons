@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  authors: MyString
+  text: MyString
+  number: MyString
+  description: MyText
+  addon_id: 1
+  licenses: MyString
+  dependencies: MyText
+
+two:
+  authors: MyString
+  text: MyString
+  number: MyString
+  description: MyText
+  addon_id: 1
+  licenses: MyString
+  dependencies: MyText

@@ -1,0 +1,11 @@
+<h1>Addons</h1>
+
+<% @addons.each do |addon| %>
+  <div>
+    <h2><%= link_to addon.name, addon %></h2>
+  </div>
+<% end %>
+
+<br>
+
+<%= link_to 'New Addon', new_addon_path %>

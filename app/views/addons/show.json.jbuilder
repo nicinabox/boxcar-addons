@@ -1,1 +1,1 @@
-json.extract! @addon, :name, :endpoint
+json.extract! @addon, :name, :endpoint, :latest

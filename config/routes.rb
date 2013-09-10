@@ -1,6 +1,11 @@
 BoxcarAddons::Application.routes.draw do
   resources :addons
-  resources :packages, :only => [:index, :show]
+  resources :packages, :only => [:index, :show] do
+    get ':version', action: :version,
+                    as: :version,
+                    constraints: { version: /[\w.]+/ },
+                    on: :member
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

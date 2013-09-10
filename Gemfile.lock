@@ -37,6 +37,7 @@ GEM
     coffee-script-source (1.6.3)
     diff-lcs (1.2.4)
     erubis (2.7.0)
+    excon (0.25.3)
     execjs (2.0.1)
     friendly_id (5.0.0.beta4)
       activerecord (~> 4.0.0)
@@ -44,6 +45,11 @@ GEM
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
       posix-spawn (~> 0.3.6)
+    heroku-api (0.3.15)
+      excon (~> 0.25.1)
+    heroku_san (4.3.0)
+      heroku-api (>= 0.1.2)
+      rake
     hike (1.2.3)
     httparty (0.11.0)
       multi_json (~> 1.0)
@@ -123,6 +129,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   friendly_id (= 5.0.0.beta4)
   grit
+  heroku_san
   httparty
   jbuilder (~> 1.2)
   jquery-rails

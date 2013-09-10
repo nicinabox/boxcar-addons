@@ -36,6 +36,10 @@ gem 'grit'
 gem 'httparty'
 gem 'friendly_id', '5.0.0.beta4'
 
+group :development do
+  gem 'heroku_san'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

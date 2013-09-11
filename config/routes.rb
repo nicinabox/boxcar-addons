@@ -1,6 +1,15 @@
 BoxcarAddons::Application.routes.draw do
   devise_for :users
-  resources :addons, :only => [:index, :show, :new, :create]
+
+  resources :addons, :only => [:index, :show, :new, :create] do
+    get '/by/me' => 'addons#my_addons',
+                     on: :collection,
+                     as: :my
+
+    get '/by/:author' => 'addons#by_author',
+                         on: :collection,
+                         as: :by_author
+  end
   resources :packages, :only => [:index, :show] do
     get ':version', action: :version,
                     as: :version,

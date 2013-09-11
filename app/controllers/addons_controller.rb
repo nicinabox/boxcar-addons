@@ -1,5 +1,6 @@
 class AddonsController < ApplicationController
   before_action :set_addon, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:index, :show]
 
   # GET /addons
   # GET /addons.json
@@ -31,6 +32,7 @@ class AddonsController < ApplicationController
     }
 
     @addon.versions.build boxcar_json
+    @addon.user = current_user
 
     respond_to do |format|
       if @addon.save
@@ -41,6 +43,14 @@ class AddonsController < ApplicationController
         format.json { render json: @addon.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def my_addons
+    @addons = current_user.addons
+    render :by_author
+  end
+
+  def by_author
   end
 
   private

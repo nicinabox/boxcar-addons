@@ -10,7 +10,8 @@ class Addon < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
-  has_many :versions
+  has_many :versions, dependent: :destroy
+  belongs_to :user
 
   def latest
     versions.last

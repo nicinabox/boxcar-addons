@@ -34,7 +34,7 @@ class Addon < ActiveRecord::Base
   end
 
   def manifest
-    raw_boxcar_json.reject! { |k, v|
+    raw_boxcar_json.reject { |k, v|
       Version.attribute_names.exclude?(k) and
       Version.attribute_aliases.exclude?(k)
     }
@@ -44,7 +44,7 @@ private
 
   def raw_boxcar_json
     if File.exists? boxcar_json
-      JSON.parse(File.read(boxcar_json))
+      p JSON.parse(File.read(boxcar_json))
     else
       {}
     end
@@ -73,6 +73,6 @@ private
   end
 
   def tmp_repo
-    "#{RAILS_ROOT}/tmp/addon/#{name}"
+    "#{Rails.root}/tmp/addon/#{name}"
   end
 end

@@ -17,6 +17,10 @@ class Addon < ActiveRecord::Base
     versions.last
   end
 
+  def human_name
+    latest.name or name
+  end
+
   def clone_repo
     dest = tmp_repo(name)
 

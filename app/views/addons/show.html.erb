@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @addon.name %></h1>
+<h1><%= @addon.human_name %></h1>
 <p><%= @addon.latest.description %></p>
 <p><%= @addon.latest.number %></p>
 <p><%= link_to @addon.latest.author, by_author_addons_path(@addon.latest.author) %></p>

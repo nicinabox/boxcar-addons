@@ -22,7 +22,6 @@ class AddonsController < ApplicationController
   # POST /addons.json
   def create
     @addon = Addon.new(addon_params)
-
     @addon.clone_repo
 
     boxcar_json = @addon.parse_boxcar_json
@@ -33,6 +32,7 @@ class AddonsController < ApplicationController
 
     @addon.versions.build boxcar_json
     @addon.user = current_user
+    @addon.name = @addon.name.parameterize
 
     respond_to do |format|
       if @addon.save

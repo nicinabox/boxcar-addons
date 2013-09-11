@@ -7,11 +7,27 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Boxcar Addons</a>
+      <a class="navbar-brand" href="//boxcar.nicinabox.com">Boxcar</a>
     </div>
 
     <div id="primary-nav" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Overview' %>
+        </li>
+        <li>
+          <%= link_to 'News' %>
+        </li>
+        <li>
+          <%= link_to 'FAQ' %>
+        </li>
+        <li>
+          <%= link_to 'Documentation' %>
+        </li>
+        <li>
+          <%= link_to 'Addons', addons_path %>
+        </li>
+
         <li>
           <%= link_to 'Register Addon', new_addon_path %>
         </li>

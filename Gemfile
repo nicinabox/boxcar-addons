@@ -36,6 +36,7 @@ gem 'grit'
 gem 'httparty'
 gem 'friendly_id', '5.0.0.beta4'
 gem 'devise'
+gem 'compass-rails', "~> 2.0.alpha.0"
 
 group :development do
   gem 'heroku_san'

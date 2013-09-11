@@ -73,6 +73,6 @@ private
   end
 
   def tmp_repo
-    "/tmp/addon/#{name}"
+    "#{RAILS_ROOT}/tmp/addon/#{name}"
   end
 end

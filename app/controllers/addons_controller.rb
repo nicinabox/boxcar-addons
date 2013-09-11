@@ -51,6 +51,8 @@ class AddonsController < ApplicationController
   end
 
   def by_author
+    versions = Version.find_all_by_author(params[:author])
+    @addons = versions.collect { |v| v.addon }
   end
 
   private

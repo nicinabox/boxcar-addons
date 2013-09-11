@@ -3,5 +3,5 @@
 <h1><%= @addon.name %></h1>
 <p><%= @addon.latest.description %></p>
 <p><%= @addon.latest.number %></p>
-<p><%= @addon.latest.author %></p>
+<p><%= link_to @addon.latest.author, by_author_addons_path(@addon.latest.author) %></p>
 <p><%= @addon.latest.homepage %></p>

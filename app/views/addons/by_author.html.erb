@@ -1,4 +1,4 @@
-<h1>My Addons</h1>
+<h1>Addons by <%= params[:author] || 'me' %></h1>
 
 <% @addons.each do |addon| %>
   <h3><%= addon.name %></h3>

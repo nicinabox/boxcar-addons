@@ -8,49 +8,7 @@
 </head>
 <body>
 
-<div id="header">
-  <nav class="navbar navbar-default navbar-static-top">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-nav">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Boxcar Addons</a>
-    </div>
-
-    <div id="primary-nav" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li>
-          <%= link_to 'Register Addon', new_addon_path %>
-        </li>
-        <% if current_user %>
-          <li>
-            <%= link_to 'My Addons', my_addons_path %>
-          </li>
-        <% end %>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
-        <% if current_user %>
-          <li>
-            <%= link_to current_user.email, edit_user_registration_path %>
-          </li>
-          <li>
-            <%= link_to 'Logout', destroy_user_session_path %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to 'Sign in', new_user_session_path %>
-          </li>
-          <li>
-            <%= link_to 'Register', new_user_registration_path %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </nav>
-</div>
+<%= render 'layouts/header' %>
 
 <div class="container">
   <div id="main">

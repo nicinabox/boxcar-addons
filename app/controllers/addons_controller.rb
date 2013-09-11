@@ -22,17 +22,11 @@ class AddonsController < ApplicationController
   # POST /addons.json
   def create
     @addon = Addon.new(addon_params)
-    @addon.clone_repo
-
-    boxcar_json = @addon.parse_boxcar_json
-    boxcar_json.reject! { |k, v|
-      Version.attribute_names.exclude?(k) and
-      Version.attribute_aliases.exclude?(k)
-    }
-
-    @addon.versions.build boxcar_json
     @addon.user = current_user
     @addon.name = @addon.name.parameterize
+
+    @addon.clone_repo
+    @addon.versions.build(@addon.manifest)
 
     respond_to do |format|
       if @addon.save

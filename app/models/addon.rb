@@ -10,6 +10,10 @@ class Addon < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
 
+  validate :git_protocol
+  validate :public_repo
+  validate :boxcar_json_exists
+
   has_many :versions, dependent: :destroy
   belongs_to :user
 
@@ -21,42 +25,54 @@ class Addon < ActiveRecord::Base
     latest.name or name
   end
 
+  # This really doesn't belong here
   def clone_repo
-    dest = tmp_repo(name)
+    dest = tmp_repo
 
     repo = Git.new(dest)
-    repo.clone({
-        :quiet => true
-      },
-      endpoint,
-      dest
-    )
+    repo.clone({ :quiet => true }, endpoint, dest)
   end
 
-  def parse_boxcar_json
-    dest = tmp_repo(name)
-    metadata = dest + "/boxcar.json"
-
-    unless File.exists? metadata
-      abort "! No boxcar.json found"
-    end
-
-    JSON.parse(File.read(metadata))
-  end
-
-  def git_protocol(url)
-    if /^git:\/\// =~ url
-      true
-    end
-  end
-
-  def repo_public?(url)
-    `git ls-remote #{url}`.include? 'master'
+  def manifest
+    raw_boxcar_json.reject! { |k, v|
+      Version.attribute_names.exclude?(k) and
+      Version.attribute_aliases.exclude?(k)
+    }
   end
 
 private
 
-  def tmp_repo(name)
+  def raw_boxcar_json
+    if File.exists? boxcar_json
+      JSON.parse(File.read(boxcar_json))
+    else
+      {}
+    end
+  end
+
+  def boxcar_json
+    tmp_repo << "/boxcar.json"
+  end
+
+  def boxcar_json_exists
+    unless File.exists? boxcar_json
+      errors.add(:endpoint, "must include boxcar.json")
+    end
+  end
+
+  def public_repo
+    unless `git ls-remote #{endpoint}`.include? 'master'
+      errors.add(:endpoint, "must be a public repo")
+    end
+  end
+
+  def git_protocol
+    unless /^git:\/\// =~ endpoint
+      errors.add(:endpoint, "must use git:// protocol")
+    end
+  end
+
+  def tmp_repo
     "/tmp/addon/#{name}"
   end
 end

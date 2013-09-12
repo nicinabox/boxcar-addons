@@ -1,5 +1,7 @@
 <h1>Addons by <%= params[:author] || 'me' %></h1>
 
-<% @addons.each do |addon| %>
-  <h3><%= addon.name %></h3>
-<% end %>
+<div class="row">
+  <div class="col-sm-8">
+    <%= render @addons %>
+  </div>
+</div>

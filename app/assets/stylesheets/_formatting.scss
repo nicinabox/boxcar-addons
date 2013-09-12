@@ -8,7 +8,7 @@ body {
 
 .label-install {
   @include border-bottom-radius(0);
-  background: #969ebb;
+  background: lighten($link-color, 25%);
   font-size: 90%;
   + pre {
     margin-top: 0 !important;
@@ -19,8 +19,8 @@ body {
 pre.large {
   margin: 30px 0;
   font-size: 1em;
-  background: #dee1ea;
-  border-color: #969ebb;
+  background: lighten($link-color, 50%);
+  border-color: lighten($link-color, 25%);
   &:before {
     content: "$ ";
     font-weight: bold;

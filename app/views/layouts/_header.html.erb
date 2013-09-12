@@ -15,9 +15,7 @@
         <li>
           <%= link_to 'Overview' %>
         </li>
-        <li>
-          <%= link_to 'Addons', addons_path %>
-        </li>
+        <%= active_link_to 'Addons', addons_path, :wrap_tag => :li %>
         <li>
           <%= link_to 'News', '//boxcar.nicinabox.com/news' %>
         </li>
@@ -29,9 +27,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to 'Register Addon', new_addon_path %>
-        </li>
+        <%= active_link_to 'Register Addon', new_addon_path, :wrap_tag => :li %>
         <% if current_user %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

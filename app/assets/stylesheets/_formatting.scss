@@ -5,3 +5,25 @@ body {
 .lead {
 	font-weight: 300;
 }
+
+.label-install {
+  @include border-bottom-radius(0);
+  background: #969ebb;
+  font-size: 90%;
+  + pre {
+    margin-top: 0 !important;
+    @include border-top-left-radius(0);
+  }
+}
+
+pre.large {
+  margin: 30px 0;
+  font-size: 1em;
+  background: #dee1ea;
+  border-color: #969ebb;
+  &:before {
+    content: "$ ";
+    font-weight: bold;
+    color: #999;
+  }
+}

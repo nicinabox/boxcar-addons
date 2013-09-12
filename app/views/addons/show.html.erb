@@ -1,7 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @addon.human_name %></h1>
-<p><%= @addon.latest.description %></p>
-<p><%= @addon.latest.number %></p>
-<p><%= link_to @addon.latest.author, by_author_addons_path(@addon.latest.author) %></p>
-<p><%= @addon.latest.homepage %></p>
+<div class="row">
+  <div class="col-sm-8">
+    <%= div_for @addon do %>
+      <h1><%= @addon.human_name %></h1>
+      <p class="lead"><%= @addon.latest.description %></p>
+
+      <span class="label label-install">Install</span>
+      <pre class="large">boxcar addons:install <%= @addon.name %></pre>
+
+      <dl class="dl-horizontal">
+        <dt>Version</dt>
+        <dd><%= @addon.latest.number %></dd>
+
+        <dt>Author</dt>
+        <dd><%= link_to @addon.latest.author, by_author_addons_path(@addon.latest.author) %></dd>
+
+        <dt>Homepage</dt>
+        <dd><%= link_to @addon.latest.homepage, @addon.latest.homepage %></dd>
+      </dl>
+
+    <% end %>
+  </div>
+</div>

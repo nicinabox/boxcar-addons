@@ -1,11 +1,15 @@
 <%= div_for addon do %>
-  <h2>
-    <%= link_to addon.human_name, addon %>
-    <small class="byline">
-      by <%= link_to addon.latest.author, by_author_addons_path(addon.latest.author) %>
-    </small>
-  </h2>
-  <p class="lead">
-    <%= addon.latest.description %>
-  </p>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2>
+        <%= link_to addon.human_name, addon %>
+        <small class="byline">
+          by <%= link_to addon.latest.author, by_author_addons_path(addon.latest.author) %>
+        </small>
+      </h2>
+      <p class="lead">
+        <%= addon.latest.description %>
+      </p>
+    </div>
+  </div>
 <% end %>

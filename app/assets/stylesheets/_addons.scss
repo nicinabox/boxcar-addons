@@ -1,6 +1,4 @@
 .addon {
-  @extend .panel;
-  padding: 0 20px;
   h2 {
     .byline {
       color: lighten($gray-light, 10%);

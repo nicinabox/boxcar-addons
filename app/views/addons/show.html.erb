@@ -2,24 +2,28 @@
 
 <div class="row">
   <div class="col-sm-8">
-    <%= div_for @addon do %>
-      <h1><%= @addon.human_name %></h1>
-      <p class="lead"><%= @addon.latest.description %></p>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= div_for @addon do %>
+          <h1><%= @addon.human_name %></h1>
+          <p class="lead"><%= @addon.latest.description %></p>
 
-      <span class="label label-install">Install</span>
-      <pre class="large">boxcar addons:install <%= @addon.name %></pre>
+          <span class="label label-install">Install</span>
+          <pre class="large">boxcar addons:install <%= @addon.name %></pre>
 
-      <dl class="dl-horizontal">
-        <dt>Version</dt>
-        <dd><%= @addon.latest.number %></dd>
+          <dl class="dl-horizontal">
+            <dt>Version</dt>
+            <dd><%= @addon.latest.number %></dd>
 
-        <dt>Author</dt>
-        <dd><%= link_to @addon.latest.author, by_author_addons_path(@addon.latest.author) %></dd>
+            <dt>Author</dt>
+            <dd><%= link_to @addon.latest.author, by_author_addons_path(@addon.latest.author) %></dd>
 
-        <dt>Homepage</dt>
-        <dd><%= link_to @addon.latest.homepage, @addon.latest.homepage %></dd>
-      </dl>
+            <dt>Homepage</dt>
+            <dd><%= link_to @addon.latest.homepage, @addon.latest.homepage %></dd>
+          </dl>
 
-    <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

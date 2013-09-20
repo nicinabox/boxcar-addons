@@ -2,6 +2,8 @@ BoxcarAddons::Application.routes.draw do
   devise_for :users
 
   resources :addons, :only => [:index, :show, :new, :create] do
+    get 'dependencies', on: :member
+
     get '/by/me' => 'addons#my_addons',
                      on: :collection,
                      as: :my
@@ -10,11 +12,14 @@ BoxcarAddons::Application.routes.draw do
                          on: :collection,
                          as: :by_author
   end
+
   resources :packages, :only => [:index, :show] do
-    get ':version', action: :version,
-                    as: :version,
-                    constraints: { version: /[\w.]+/ },
-                    on: :member
+    member do
+        get ':version', action: :version,
+                        as: :version,
+                        constraints: { version: /[\w.]+/ }
+
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

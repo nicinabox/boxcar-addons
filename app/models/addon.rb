@@ -40,7 +40,16 @@ class Addon < ActiveRecord::Base
     }
   end
 
+  def dependency_urls
+    latest.dependencies.map { |d| to_slackware_url(d) }
+  end
+
 private
+
+  def to_slackware_url(dependency)
+    package = Package.find_by_name dependency.first
+    package.url
+  end
 
   def raw_boxcar_json
     if File.exists? boxcar_json

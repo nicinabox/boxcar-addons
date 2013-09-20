@@ -1,5 +1,5 @@
 class AddonsController < ApplicationController
-  before_action :set_addon, only: [:show, :edit, :update, :destroy]
+  before_action :set_addon, only: [:show, :edit, :update, :destroy, :dependencies]
   before_filter :authenticate_user!, except: [:index, :show, :by_author]
 
   # GET /addons
@@ -49,6 +49,10 @@ class AddonsController < ApplicationController
     @addons = versions.collect { |v| v.addon }
   end
 
+  def dependencies
+    render json: @addon.dependency_urls
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_addon
@@ -59,4 +63,6 @@ class AddonsController < ApplicationController
     def addon_params
       params[:addon].permit(:name, :endpoint, :version)
     end
+
+
 end

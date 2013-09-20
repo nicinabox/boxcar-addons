@@ -47,8 +47,20 @@ class Addon < ActiveRecord::Base
 private
 
   def to_slackware_url(dependency)
-    package = Package.find_by_name dependency.first
-    package.url
+    package      = Gem::Dependency.new(dependency.first, convert_tilde(dependency.last))
+    requirements = package.requirements_list
+
+    package_versions = Package.find_all_by_name package.name
+
+    satisfied_packages = package_versions.collect do |p|
+      p if package =~ Gem::Dependency.new(p.name, p.version)
+    end
+
+    satisfied_packages.compact.first.url
+  end
+
+  def convert_tilde(version)
+    version.gsub(/~(\s?\d)/, "~>#{1}")
   end
 
   def raw_boxcar_json

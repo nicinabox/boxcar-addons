@@ -1,4 +1,6 @@
 class Package < ActiveRecord::Base
+  default_scope order('version DESC')
+
   def path
     "/slackware-#{slackware_version}#{location}/#{package_name}"
   end

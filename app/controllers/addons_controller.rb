@@ -1,6 +1,6 @@
 class AddonsController < ApplicationController
   before_action :set_addon, only: [:show, :edit, :update, :destroy, :dependencies]
-  before_filter :authenticate_user!, except: [:index, :show, :by_author]
+  before_filter :authenticate_user!, only: [:new, :create]
 
   # GET /addons
   # GET /addons.json

@@ -7,7 +7,7 @@ class PackagesController < ApplicationController
 
   def show
     @packages = Package.find_all_by_name(params[:id])
-    render json: @packages.to_json
+    render json: @packages.to_json(methods: :path)
   end
 
   def version
@@ -16,7 +16,7 @@ class PackagesController < ApplicationController
                              ).first
 
     if @package
-      render json: @package.to_json
+      render json: @package.to_json(methods: :path)
     else
       render json: '404', status: 404
     end

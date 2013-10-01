@@ -14,11 +14,13 @@ BoxcarAddons::Application.routes.draw do
   end
 
   resources :packages, :only => [:index, :show] do
+    collection do
+      get 'search', action: :search
+    end
     member do
         get ':version', action: :version,
                         as: :version,
                         constraints: { version: /[\w.]+/ }
-
     end
   end
 

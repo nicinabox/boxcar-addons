@@ -21,9 +21,23 @@ namespace :packages do
       package_name = package.match(/PACKAGE NAME:(.+)/)[1].strip
       location     = package.match(/PACKAGE LOCATION:\s+\.(.+)/)[1].strip
       comp, uncomp = package.scan(/PACKAGE SIZE.+:(.+)/).flatten.map(&:strip)
+      raw_summary  = package.match(/PACKAGE DESCRIPTION:(.+)/m)[1].strip
 
-      name, version, arch, build = package_name.scan(/([a-z\-_?]+)-([\w\.]+)-(i\d86|x86_64|noarch)-([\d]+)/).flatten
+      name, version, arch, build = package_name.scan(/(.+)-(.+)-(.+)-(.+)\./).flatten
 
+      # Note to future self: aalib will FUCK YOU UP
+      next if name == 'aalib'
+
+      # Remove name prefix
+      description = raw_summary.gsub("#{name}:", "")
+
+      # Split summary
+      summary = description.slice!(/^(.+)\n/).strip
+
+      # Cleanup description
+      description = description.gsub(/\n /, " ").gsub("  ", " ").strip
+
+      puts "#{name} (#{version}) - #{summary}"
       @package = Package.create!(
         :name => name,
         :version => version,
@@ -33,7 +47,9 @@ namespace :packages do
         :location => location,
         :size_compressed => comp,
         :size_uncompressed => uncomp,
-        :slackware_version => slackware_version
+        :slackware_version => slackware_version,
+        :summary => summary,
+        :description => description
       )
     end
 

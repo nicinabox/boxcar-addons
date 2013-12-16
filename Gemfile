@@ -36,7 +36,7 @@ gem 'grit'
 gem 'httparty'
 gem 'friendly_id', '5.0.0.beta4'
 gem 'devise'
-gem 'compass-rails', "~> 2.0.alpha.0"
+gem 'compass-rails', "~> 1.1"
 gem 'active_link_to'
 gem 'newrelic_rpm'
 

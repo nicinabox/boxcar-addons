@@ -20,7 +20,7 @@ BoxcarAddons::Application.routes.draw do
     member do
         get ':version', action: :version,
                         as: :version,
-                        constraints: { version: /[\w.]+/ }
+                        constraints: { version: /[~%3E%3C%3D\w.]+/ }
     end
   end
 

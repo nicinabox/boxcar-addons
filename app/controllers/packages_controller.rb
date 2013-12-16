@@ -16,12 +16,22 @@ class PackagesController < ApplicationController
   end
 
   def version
-    @package = Package.where(name:    params[:id],
-                             version: params[:version]
-                             ).first
+    if constraint?(params[:version])
+      @package = Package.satisfied_packages(name: params[:id],
+                                            version: params[:version]
+                                            ).first
+    else
+      @package = Package.where(name:    params[:id],
+                               version: params[:version]
+                               ).first
+    end
   end
 
   private
+    def constraint?(string)
+      /[<=~>]/ =~ string
+    end
+
     def set_format
       request.format = 'json'
     end
